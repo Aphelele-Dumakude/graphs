@@ -12,35 +12,34 @@ public abstract class AbstractGraph<V> implements Graph<V>{
         for (V vertex : vertices) {
             addVertex(vertex);
         }
-        createAdjacencyLists(edges, vertices.length);
+        createAdjacencyLists(edges);
     }
     protected AbstractGraph(List<V> vertices, List<Edge> edges) {
         for (V vertex : vertices) {
             addVertex(vertex);
         }
-        createAdjacencyLists(edges, vertices.size());
+        createAdjacencyLists(edges);
     }
     protected AbstractGraph(List<Edge> edges, int numberOfVertices) {
         for (int i = 0; i < numberOfVertices; i++) {
             addVertex((V) (Integer.valueOf(i)));
         }
-        createAdjacencyLists(edges, numberOfVertices);
+        createAdjacencyLists(edges);
     }
 
     public AbstractGraph(int[][] edges, int numberOfVertices) {
         for (int i = 0; i < numberOfVertices; i++) {
             addVertex((V) (Integer.valueOf(i)));
         }
-        createAdjacencyLists(edges, numberOfVertices);
+        createAdjacencyLists(edges);
     }
 
-    private void createAdjacencyLists(int[][] edges, int numberOfVertices) {
+    private void createAdjacencyLists(int[][] edges) {
         for (int[] edge : edges) {
             addEdge(edge[0], edge[1]);
         }
-        createAdjacencyLists(edges, numberOfVertices);
     }
-    private void createAdjacencyLists(List<Edge> edges, int numberOfVertices) {
+    private void createAdjacencyLists(List<Edge> edges) {
         for (Edge edge : edges) {
             addEdge(edge.u, edge.v);
         }
